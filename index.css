@@ -1,0 +1,191 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* -------------------- END MEYER RESET -------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #93AB92;
+}
+
+#displayBox {
+  position: relative;
+  top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  border-radius: 6px;
+  width: 400px;
+  height: auto;
+  max-width: 1000px;
+  background-color: #332B2B;
+  transition: ease 0.5s;
+}
+
+/* ----- TITLE PAGE ----- */
+
+h1 {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#startButton {
+  position: relative;
+  height: 40px;
+  width: 130px;
+  padding: 10px;
+  top: 50%;
+  left: 31%;
+  border-radius: 6px;
+}
+
+#hype {
+  color: #c60c8e;
+}
+
+.advisory {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  color: white;
+}
+
+#sourceNote {
+  color: grey;
+}
+
+#final {
+  text-align: center;
+}
+
+/* ----- STOCK DISPLAY PAGE ----- */
+
+#stocks {
+  display: none;
+  color: white;
+}
+
+#stockInfo {
+  text-align: center;
+}
+
+.stockBox{
+  display: none;
+  padding: 40px 0 0 0;
+  border: 2px solid #7d4b87;
+  border-radius: 4px;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  background-color: #8D948D;
+}
+
+#closedBanner {
+  margin-bottom: 10px;
+}
+
+#priceSet {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#clickText {
+  display: none;
+  color: grey;
+  position: relative;
+  top: 10px;
+}
+
+#searchLabel {
+  position: relative;
+  bottom: 20px;
+}
+
+.js-search-form {
+  position: relative;
+  top: 70px;
+  text-align: center;
+}
+
+#virtPortButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  height: 20px;
+  font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

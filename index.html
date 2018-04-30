@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>HyperDrive Capstone</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="float-grid.css" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <body>
+    <main role="main">
+      <section id='displayBox' class='row'>
+        
+      <!-- TITLE PAGE -->
+        <section id='start'>
+          <h1><span id='hype'>Hype</span>rDrive</h1>
+          <p class='advisory'> 'HyperDrive' is an Investment Tool that scans data provided by <span id='sourceNote'> AlphaVantage </span> API and delivers it to the user.</p>
+          <p class='advisory'> **PLEASE** study thoroughly before investing. User should review all available news releases and earnings reports prior to investing in any company. </p>
+          <p class='advisory' id='final'> By clicking 'I UNDERSTAND',<br> you agree to hold yourself accountable.</p>
+          <button id='startButton' role='button' type='button'>I UNDERSTAND</button>
+        </section>
+        
+      <!-- STOCK DISPLAY PAGE -->
+        <section id='stocks'>
+          
+            <section id='stockInfo'>
+              <a href='' class='stockLink' target='_blank'>
+              <div class='stockBox'>
+                Ticker Here
+              </div>
+              </a>
+              <span id='clickText'> Click for Stocktwits page. </span>
+            </section>
+            <section id='priceSet'>
+              <p id='closedBanner'></p>
+              <p id='prices'>[Price Unavailable]</p>
+            </section>
+           
+            <form action="#" class="js-search-form">
+              <label id='searchLabel' for="query">Insert Stock Symbol<br></label>
+              <input aria-labelledby='searchLabel' id='query' role="textbox" type="text" class="js-query" placeholder="RDC, AAPL, CAMP, etc." oninvalid="this.setCustomValidity('Please enter a stock symbol.')"
+                oninput="this.setCustomValidity('')"  required>
+              <button role="button" type="submit">Search</button>
+            </form>
+            
+            <form action="https://www.marketwatch.com/game" target='_blank'>
+              <input id='virtPortButton' role='button' type="submit" value="Start a Virtual Portfolio" />
+            </form>
+            
+          </section>
+        </section>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="index.js"></script>
+    </main>
+  </body>
+</html>
