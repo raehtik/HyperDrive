@@ -8,17 +8,19 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:800|Oswald|Stalinist+One" rel="stylesheet">
     <link href="index.css" rel="stylesheet" type="text/css" />
     <link href="float-grid.css" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
     <main role="main">
+      <section id='loadScreen'>Loading Stock Data..</section>
       <section id='displayBox' class='row'>
         
       <!-- TITLE PAGE -->
         <section id='start'>
-          <h1><span id='hype'>Hype</span>rDrive</h1>
+          <h1>HyperDrive</h1>
           <p class='advisory'> 'HyperDrive' is an Investment Tool that scans data provided by <span id='sourceNote'> AlphaVantage </span> API and delivers it to the user.</p>
           <p class='advisory'> **PLEASE** study thoroughly before investing. User should review all available news releases and earnings reports prior to investing in any company. </p>
           <p class='advisory' id='final'> By clicking 'I UNDERSTAND',<br> you agree to hold yourself accountable.</p>
@@ -30,21 +32,26 @@
           
             <section id='stockInfo'>
               <a href='' class='stockLink' target='_blank'>
-              <div class='stockBox'>
-                Ticker Here
-              </div>
+                <div class='stockBox'>
+                    Ticker Here
+                </div>
               </a>
-              <span id='clickText'> Click for Stocktwits page. </span>
+              <span id='clickText'> Click box for Stocktwits page. </span>
             </section>
             <section id='priceSet'>
               <p id='closedBanner'></p>
-              <p id='prices'>[Price Unavailable]</p>
+              <p id='dateStamp'>[Date Unavailable]</p>
+              <section id='priceAlign'>
+                <p id='prices'>[Price Unavailable]</p>
+                <p id='prices2'></p>
+              </section>
+              <p id='movement'></p>
             </section>
            
             <form action="#" class="js-search-form">
               <label id='searchLabel' for="query">Insert Stock Symbol<br></label>
               <input aria-labelledby='searchLabel' id='query' role="textbox" type="text" class="js-query" placeholder="RDC, AAPL, CAMP, etc." oninvalid="this.setCustomValidity('Please enter a stock symbol.')"
-                oninput="this.setCustomValidity('')"  required>
+                oninput="this.setCustomValidity('')" autocomplete='off' required>
               <button role="button" type="submit">Search</button>
             </form>
             

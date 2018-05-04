@@ -53,13 +53,41 @@ table {
   box-sizing: border-box;
 }
 
-html {
-  background-color: #93AB92;
+html { 
+  background: url(Images/Vertigo.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Oswald', Sans-Serif ;
+}
+
+#loadScreen {
+  background: url(Images/squareload.gif) no-repeat center center;
+  webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  font-weight: bold;
+  display: none;
+  position: relative;
+  top: 350px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding: 25px;
+  border-radius: 6px;
+  width: 120px;
+  height: auto;
+  background-color: rgb(5, 14, 28, 0.9);
 }
 
 #displayBox {
   position: relative;
-  top: 100px;
+  top: 200px;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   padding: 25px;
@@ -67,30 +95,30 @@ html {
   width: 400px;
   height: auto;
   max-width: 1000px;
-  background-color: #332B2B;
-  transition: ease 0.5s;
+  background-color: rgb(5, 14, 28, 0.9);
+  transition: ease 1s;
 }
 
 /* ----- TITLE PAGE ----- */
 
 h1 {
+  color: #2a5eb2;
   text-align: center;
   font-size: 20px;
   margin-bottom: 20px;
+  font-family: 'Stalinist One';
 }
 
 #startButton {
+  background-color: #7a7a7a;
   position: relative;
-  height: 40px;
+  height: 45px;
   width: 130px;
   padding: 10px;
   top: 50%;
   left: 31%;
   border-radius: 6px;
-}
-
-#hype {
-  color: #c60c8e;
+  font-family: 'Oswald', Sans-Serif;
 }
 
 .advisory {
@@ -109,6 +137,10 @@ h1 {
 
 /* ----- STOCK DISPLAY PAGE ----- */
 
+a {
+  text-decoration: none;
+}
+
 #stocks {
   display: none;
   color: white;
@@ -118,28 +150,50 @@ h1 {
   text-align: center;
 }
 
+.stockLink {
+  display: inline-block;
+}
+
 .stockBox{
   display: none;
   padding: 40px 0 0 0;
-  border: 2px solid #7d4b87;
-  border-radius: 4px;
+  border: 2px solid black;
+  border-radius: 6px;
   height: 100px;
   width: 100px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   color: white;
-  background-color: #8D948D;
-}
-
-#closedBanner {
-  margin-bottom: 10px;
+  background-color: #0a3e5e;
 }
 
 #priceSet {
   display: none;
   margin-top: 20px;
   text-align: center;
+}
+
+#dateStamp {
+  margin-bottom: 5px;
+  color: grey;
+}
+
+#priceAlign {
+  width: 72%;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  left: 40px;
+}
+
+#movement {
+  margin-top: 10px;
+}
+
+#closedBanner {
+  margin-bottom: 10px;
 }
 
 #clickText {
@@ -155,12 +209,12 @@ h1 {
 }
 
 .js-search-form {
-  position: relative;
-  top: 70px;
+  margin-top: 40px;
   text-align: center;
 }
 
 #virtPortButton {
+  display: none;
   position: absolute;
   bottom: 20px;
   right: 20px;
