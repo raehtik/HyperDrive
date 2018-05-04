@@ -88,24 +88,31 @@ function renderData(result) {
     if (wDate.getDay() === 0) {
       daySnip = 'Friday';
       dayFull = 'Sunday';
+      dayBefore = 'Friday';
     } else if (wDate.getDay() === 1) {
       daySnip = 'Monday';
       dayFull = 'Monday';
+      dayBefore = 'Friday';
     } else if (wDate.getDay() === 2) {
       daySnip = 'Tuesday';
       dayFull = 'Tuesday';
+      dayBefore = 'Monday';
     } else if (wDate.getDay() === 3) {
       daySnip = 'Wednesday';
       dayFull = 'Wednesday';
+      dayBefore = 'Tuesday';
     } else if (wDate.getDay() === 4) {
       daySnip = 'Thursday';
       dayFull = 'Thursday';
+      dayBefore = 'Wednesday';
     } else if (wDate.getDay() === 5) {
       daySnip = 'Friday';
       dayFull = 'Friday';
+      dayBefore = 'Thursday'
     } else {
       daySnip = 'Friday';
       dayFull = 'Saturday';
+      dayBefore = 'Friday'
     }
     
      //Generates last market day's open/closing price, even if date is weekend.
@@ -138,8 +145,17 @@ function renderData(result) {
      $('#closedBanner').text('(' + dayFull + ': Market is open today!)');
      $('#closedBanner').css('color','darkgreen');}
      
-    //Generates price and message
+    //Generates price and message, accounting for market times and dates. 
     $('#dateStamp').text(dateY + '/' + daySnip);
+    if (new Date().getUTCHours() >= 21 || new Date().getUTCHours() <= 14) {
+      dateY = (new Date()).getFullYear() + '-' +
+     ('0'+ (new Date().getMonth()+1)).slice(-2) + '-' + 
+     ('0'+ (new Date().getDate() -1)).slice(-2);
+    } else {
+      dateY = (new Date()).getFullYear() + '-' +
+     ('0'+ (new Date().getMonth()+1)).slice(-2) + '-' + 
+     ('0'+ (new Date().getDate())).slice(-2);
+    }
     var price1 = result["Time Series (Daily)"][dateY]["1. open"];
     var price2 = result["Time Series (Daily)"][dateY]["4. close"];
     var volume = result["Time Series (Daily)"][dateY]["5. volume"];
@@ -178,7 +194,7 @@ function renderData(result) {
      
       //Unless it's a weekend, then we'll just give you the information for Friday.
       } else { 
-        $('#prices').text(ticker + " opened at $" + price1.slice(0, -2) + ' on Friday. Gooo ' + ticker + '!');
+        $('#prices').text(ticker + " opened at $" + price1.slice(0, -2) + ' on ' + dayBefore + '. Gooo ' + ticker + '!');
         $('#prices2').text(ticker + " closed at $" + price2.slice(0, -2) + ' and ' + volume + ' shares were sold.');
         $('#movement').text(directionText + ticker + directionBlurb + perc + '%!');
       }

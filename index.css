@@ -73,7 +73,6 @@ html {
   display: none;
   position: relative;
   top: 350px;
-  position: relative;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -87,7 +86,6 @@ html {
 #displayBox {
   position: relative;
   top: 200px;
-  position: relative;
   margin-left: auto;
   margin-right: auto;
   padding: 25px;
@@ -109,14 +107,23 @@ h1 {
   font-family: 'Stalinist One';
 }
 
+.understand {
+  color: orange;
+}
+
+.startWrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 130px;
+}
+
 #startButton {
-  background-color: #7a7a7a;
-  position: relative;
+  background-color: #af731d;
   height: 45px;
   width: 130px;
   padding: 10px;
-  top: 50%;
-  left: 31%;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 6px;
   font-family: 'Oswald', Sans-Serif;
 }
@@ -180,12 +187,18 @@ a {
 }
 
 #priceAlign {
-  width: 72%;
+  border: 2px solid black;
+  background-color: #44413c;
+  width: 60%;
+  padding: 7px;
   text-align: left;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
-  left: 40px;
+}
+
+.price {
+  font-size: 16px;
+  margin: 7px 0 7px 0;
 }
 
 #movement {
@@ -208,6 +221,16 @@ a {
   bottom: 20px;
 }
 
+#searchButton {
+  color: white;
+  font-weight: bold;
+  margin-top: 15px;
+  width: 75px;
+  padding: 5px;
+  background-color: #0a3e5e;
+  border-radius: 5px;
+}
+
 .js-search-form {
   margin-top: 40px;
   text-align: center;
@@ -215,11 +238,16 @@ a {
 
 #virtPortButton {
   display: none;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  height: 20px;
+  color: white;
+  font-weight: bold;
+  background-color: #1a4c19;
+  border: 1px solid black;
+  border-radius: 5px;
   font-size: 10px;
+  padding: 7px;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   
   <head>
     <meta charset="utf-8">
+    <meta name="description" content="HyperDrive conveniently provides you with data that you could find almost anywhere else. It's h-h-hyper cool!">
+    <meta name="keywords" content="Stocks, Market, Trading, Tool, Application, HyperDrive, AlphaVantage, API">
+    <meta name="author" content="Joshua Stelly">
     <meta name="viewport" content="width=device-width">
     <title>HyperDrive Capstone</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -15,47 +18,48 @@
   
   <body>
     <main role="main">
-      <section id='loadScreen'>Loading Stock Data..</section>
+      <section aria-live="assertive" id='loadScreen'>Loading Stock Data..</section>
       <section id='displayBox' class='row'>
         
       <!-- TITLE PAGE -->
         <section id='start'>
-          <h1>HyperDrive</h1>
+          <h1 role='banner'>HyperDrive</h1>
           <p class='advisory'> 'HyperDrive' is an Investment Tool that scans data provided by <span id='sourceNote'> AlphaVantage </span> API and delivers it to the user.</p>
           <p class='advisory'> **PLEASE** study thoroughly before investing. User should review all available news releases and earnings reports prior to investing in any company. </p>
-          <p class='advisory' id='final'> By clicking 'I UNDERSTAND',<br> you agree to hold yourself accountable.</p>
-          <button id='startButton' role='button' type='button'>I UNDERSTAND</button>
+          <p class='advisory' id='final'> By clicking <span class='understand'>I 'UNDERSTAND'</span>,<br> you agree to hold yourself accountable.</p>
+          <div class='startWrapper'>
+            <button role='button' id='startButton' type='button'>I UNDERSTAND</button>
+          </div>
         </section>
         
       <!-- STOCK DISPLAY PAGE -->
         <section id='stocks'>
-          
             <section id='stockInfo'>
-              <a href='' class='stockLink' target='_blank'>
-                <div class='stockBox'>
+              <a role='link' href='' class='stockLink' target='_blank'>
+                <h2 class='stockBox'>
                     Ticker Here
-                </div>
+                </h2>
               </a>
               <span id='clickText'> Click box for Stocktwits page. </span>
             </section>
             <section id='priceSet'>
               <p id='closedBanner'></p>
               <p id='dateStamp'>[Date Unavailable]</p>
-              <section id='priceAlign'>
-                <p id='prices'>[Price Unavailable]</p>
-                <p id='prices2'></p>
+              <section aria-live='assertive' id='priceAlign'>
+                <p id='prices' class='price'>[Price Unavailable]</p>
+                <p id='prices2' class='price'></p>
               </section>
               <p id='movement'></p>
             </section>
            
             <form action="#" class="js-search-form">
-              <label id='searchLabel' for="query">Insert Stock Symbol<br></label>
-              <input aria-labelledby='searchLabel' id='query' role="textbox" type="text" class="js-query" placeholder="RDC, AAPL, CAMP, etc." oninvalid="this.setCustomValidity('Please enter a stock symbol.')"
-                oninput="this.setCustomValidity('')" autocomplete='off' required>
-              <button role="button" type="submit">Search</button>
+              <label role='label' id='searchLabel' for="query">Insert Stock Symbol<br></label>
+              <input role='search' aria-labelledby='searchLabel' id='query' role="textbox" type="text" class="js-query" placeholder="RDC, AAPL, CAMP, etc." oninvalid="this.setCustomValidity('Please enter a stock symbol.')"
+                oninput="this.setCustomValidity('')" autocomplete='off' required> <br>
+              <button role="button" id='searchButton' type="submit">Search</button>
             </form>
             
-            <form action="https://www.marketwatch.com/game" target='_blank'>
+            <form role ='link' action="https://www.marketwatch.com/game" target='_blank'>
               <input id='virtPortButton' role='button' type="submit" value="Start a Virtual Portfolio" />
             </form>
             

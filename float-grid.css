@@ -51,26 +51,33 @@
 }
 
 
-/* Non-mobile, grid */
-@media only screen and (min-width: 640px) {
+@media only screen and (max-width: 420px) {
 
-  /* 3 columns, 3/12 in % */
-  .col-3 {
-    width: 25%;
+#displayBox {
+  top: 100px;
+  width: 250px;
   }
 
-  /* 4 columns */
-  .col-4 {
-    width: 33.33%;
+.price {
+  font-size: 12px;
   }
 
-  /* 6 columns */
-  .col-6 {
-    width: 50%;
+.js-search-form {
+  margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  #displayBox {
+  top: 20px;
+  width: 250px;
   }
 
-  /* 12 columns */
-  .col-12 {
-    width: 100%;
+.price {
+  font-size: 12px;
+  }
+
+.js-search-form {
+  margin-top: 20px;
   }
 }
