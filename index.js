@@ -60,28 +60,8 @@ function getDataFromApi(searchTerm, callback) {
   $.getJSON(STOCK_URL, query, callback);
 }
 
-// Displays data in a box and updates the page.
-
-function renderData(result) {
-
-  if (result["Error Message"]) {
-    $('#displayBox').css('display', 'block');
-    $('#loadScreen').css('display', 'none');
-    $('.stockBox').css('display', 'block');
-    $('.stockBox').css('background-color', 'darkred');
-    $('.stockBox').html(`Oops! <br> No data found.`);
-    $('.stockBox').css('padding', '32px 0 0 0');
-    $('#priceSet').css('display', 'none');
-  } else {
-  $('#displayBox').css('display', 'block');
-  $('#loadScreen').css('display', 'none');
-  var ticker = '';
-  ticker += result["Meta Data"]["2. Symbol"].toUpperCase();
-  $('.stockBox').text(ticker);
-  $('.stockLink').attr('href','https://stocktwits.com/symbol/' + ticker);
-  console.log('Stock data retrieved');
-  
-  //Generates the day of the week.
+function getDate() {
+//Generates the day of the week.
     
     var wDate = new Date();
     
@@ -112,10 +92,8 @@ function renderData(result) {
     } else {
       daySnip = 'Friday';
       dayFull = 'Saturday';
-      dayBefore = 'Friday'
+      dayBefore = 'Friday';
     }
-    
-     //Generates last market day's open/closing price, even if date is weekend.
      
      //Code for Saturday
             //Retrieves the number for the 'day of the week'
@@ -156,27 +134,82 @@ function renderData(result) {
      ('0'+ (new Date().getMonth()+1)).slice(-2) + '-' + 
      ('0'+ (new Date().getDate())).slice(-2);
     }
+}
+
+
+function renderData(result) {
+
+  //Displays data
+  getDate();
+
+  //If no data is found
+  if (result["Error Message"]) {
+    $('#displayBox').css('display', 'block');
+    $('#loadScreen').css('display', 'none');
+    $('.stockBox').css('display', 'block');
+    $('#clickText').css('display', 'none');
+    $('#clickText2').css('display', 'none');
+    $('.stockBox').css('background-color', 'darkred');
+    $('.stockBox').html(`Oops! <br> No data found.`);
+    $('.stockLink').attr('href','javascript: void(0)');
+    $('.stockBox').css('padding', '32px 0 0 0');
+    $('#priceSet').css('display', 'none');
+
+  //Or if data is found, but the stock is unavailable
+  } else if (result["Time Series (Daily)"][dateY] == undefined){
+
+    var ticker = result["Meta Data"]["2. Symbol"].toUpperCase();
+    var tDate = result["Meta Data"]["3. Last Refreshed"];
+    var tPrice = result["Time Series (Daily)"][tDate]["4. close"].slice(0, -2);
+
+    $('#displayBox').css('display', 'block');
+    $('#loadScreen').css('display', 'none');
+    $('#clickText').css('display', 'block');
+    $('#clickText2').css('display', 'block');
+    $('#clickText').text(ticker + ' does exist, but was last traded on ' + tDate);
+    $('#clickText2').text('(If it helps, ' + ticker + ' used to sell for $' + tPrice + ' a share.)');
+
+    //.result["Time Series (Daily)"]["2017-03-20"]["4. close"]
+    $('.stockLink').attr('href','javascript: void(0)');
+    $('.stockBox').css('display', 'block');
+    $('.stockBox').css('font-size', '16px');
+    $('.stockBox').css('width', '150px');
+    $('.stockBox').css('background-color', '#bc5e12');
+    $('.stockBox').text('Oh No! That stock is no longer available!');
+    $('.stockBox').css('padding', '32px 0 0 0');
+    $('#priceSet').css('display', 'none');
+
+  //..but if the symbol is good and valid data is found
+  }  else {
+
+    var ticker = result["Meta Data"]["2. Symbol"].toUpperCase();
+    $('#displayBox').css('display', 'block');
+    $('#loadScreen').css('display', 'none');
+    $('.stockBox').text(ticker);
+    $('.stockLink').attr('href','https://stocktwits.com/symbol/' + ticker);
+    console.log('Stock data retrieved');
+  
+  
     var price1 = result["Time Series (Daily)"][dateY]["1. open"];
     var price2 = result["Time Series (Daily)"][dateY]["4. close"];
     var volume = result["Time Series (Daily)"][dateY]["5. volume"];
     var perc = Math.abs((((price1/price2)-1)*100).toFixed(2));
     
-    //Generates a price movement direction and percentage based on opening and closing price.
+    //Generates a price movement direction and percentage message based on opening and closing price.
     var directionText = '';
     
-    //Flavor text based on price movement
     if (price1 > price2) {
       directionText = 'Aw.. ';
       directionBlurb = ' went down by ';
       $('#movement').css('color','darkred');
-    } else if (price1 < price2) {
+  } else if (price1 < price2) {
       directionText = 'Yes!! ';
       directionBlurb = ' rose by ';
       $('#movement').css('color','darkgreen');
-    } else {
+  } else {
       directionText ='How boring. ';
       directionBlurb = ' made no change, at ';
-    }
+  }
     
     //We'll give you an open, a close price, and shares sold depending on what time it is.
     if (dateY === (new Date()).getFullYear() + '-' +
@@ -217,8 +250,8 @@ function renderBox() {
   $('#searchLabel').css('display', 'none');
   $('#query').attr('placeholder', 'Search Again?');
   $('#clickText').css('display', 'block');
+  $('#clickText2').css('display', 'none');
   $('#priceSet').css('display', 'block');
 }
 
 $(watchStart);
-

@@ -216,6 +216,14 @@ a {
   top: 10px;
 }
 
+#clickText2 {
+  display: none;
+  margin-top: 10px;
+  color: grey;
+  position: relative;
+  top: 10px;
+}
+
 #searchLabel {
   position: relative;
   bottom: 20px;

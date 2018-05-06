@@ -41,6 +41,7 @@
                 </h2>
               </a>
               <span id='clickText'> Click box for Stocktwits page. </span>
+              <span id='clickText2'> </span>
             </section>
             <section id='priceSet'>
               <p id='closedBanner'></p>
@@ -54,7 +55,7 @@
            
             <form action="#" class="js-search-form">
               <label role='label' id='searchLabel' for="query">Insert Stock Symbol<br></label>
-              <input role='search' aria-labelledby='searchLabel' id='query' role="textbox" type="text" class="js-query" placeholder="RDC, AAPL, CAMP, etc." oninvalid="this.setCustomValidity('Please enter a stock symbol.')"
+              <input role='search' aria-labelledby='searchLabel' id='query' type="text" class="js-query" placeholder="RDC, AAPL, CAMP, etc." oninvalid="this.setCustomValidity('Please enter a stock symbol.')"
                 oninput="this.setCustomValidity('')" autocomplete='off' required> <br>
               <button role="button" id='searchButton' type="submit">Search</button>
             </form>
