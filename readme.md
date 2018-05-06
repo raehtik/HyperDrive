@@ -1,7 +1,5 @@
 HyperDrive
 
-https://raehtik.github.io/Thinkful-Capstone-1-MVP/
-
 Description:
 ------------
 
@@ -15,6 +13,10 @@ Languages/technologies used:
 HTML
 CSS
 JavaScript, JQuery, JSON, AJAX
+
+Demo:
+-----
+https://raehtik.github.io/HyperDrive/
 
 Guide:
 ------
