@@ -11,9 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Exo+2:800|Oswald|Stalinist+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Stalinist+One" rel="stylesheet">
     <link href="index.css" rel="stylesheet" type="text/css" />
-    <link href="float-grid.css" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
@@ -24,10 +23,10 @@
       <!-- TITLE PAGE -->
         <section id='start'>
           <h1 role='banner'>HyperDrive</h1>
-          <p class='advisory'> 'HyperDrive' is an Investment Tool that scans data provided by <span id='sourceNote'> AlphaVantage </span> API and delivers it to the user.</p>
-          <p class='advisory'> **PLEASE** study thoroughly before investing. User should review all available news releases and earnings reports prior to investing in any company. </p>
-          <p class='advisory' id='final'> By clicking <span class='understand'>I 'UNDERSTAND'</span>,<br> you agree to hold yourself accountable.</p>
-          <div class='startWrapper'>
+          <p id='advisory'> 'HyperDrive' is an Investment Tool that scans data provided by <span id='sourceNote'> AlphaVantage </span> API and delivers it to the user.</p>
+          <p id='advisory'> **PLEASE** study thoroughly before investing. User should review all available news releases and earnings reports prior to investing in any company. </p>
+          <p id='advisory' id='final'> By clicking <span id='understand'>I 'UNDERSTAND'</span>,<br> you agree to hold yourself accountable.</p>
+          <div id='startWrapper'>
             <button role='button' id='startButton' type='button'>I UNDERSTAND</button>
           </div>
         </section>
@@ -35,8 +34,8 @@
       <!-- STOCK DISPLAY PAGE -->
         <section id='stocks'>
             <section id='stockInfo'>
-              <a role='link' href='' class='stockLink' target='_blank'>
-                <h2 class='stockBox'>
+              <a role='link' href='' id='stockLink' target='_blank'>
+                <h2 id='stockBox'>
                     Ticker Here
                 </h2>
               </a>
@@ -53,7 +52,7 @@
               <p id='movement'></p>
             </section>
            
-            <form action="#" class="js-search-form">
+            <form action="#" id="js-search-form">
               <label role='label' id='searchLabel' for="query">Insert Stock Symbol<br></label>
               <input role='search' aria-labelledby='searchLabel' id='query' type="text" class="js-query" placeholder="RDC, AAPL, CAMP, etc." oninvalid="this.setCustomValidity('Please enter a stock symbol.')"
                 oninput="this.setCustomValidity('')" autocomplete='off' required> <br>

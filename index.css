@@ -1,3 +1,5 @@
+/* -------------------- BEGIN MODDED MEYER RESET -------------------- */
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -31,9 +33,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
-ol, ul {
-	list-style: none;
-}
+
 blockquote, q {
 	quotes: none;
 }
@@ -42,16 +42,8 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
 
-/* -------------------- END MEYER RESET -------------------- */
-
-* {
-  box-sizing: border-box;
-}
+/* -------------------- END MODDED MEYER RESET -------------------- */
 
 html { 
   background: url(Images/Vertigo.jpg) no-repeat center center fixed; 
@@ -86,6 +78,7 @@ html {
 #displayBox {
   position: relative;
   top: 200px;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   padding: 25px;
@@ -107,11 +100,11 @@ h1 {
   font-family: 'Stalinist One';
 }
 
-.understand {
+#understand {
   color: orange;
 }
 
-.startWrapper {
+#startWrapper {
   margin-left: auto;
   margin-right: auto;
   width: 130px;
@@ -128,7 +121,7 @@ h1 {
   font-family: 'Oswald', Sans-Serif;
 }
 
-.advisory {
+#advisory {
   margin-top: 10px;
   margin-bottom: 40px;
   color: white;
@@ -157,11 +150,11 @@ a {
   text-align: center;
 }
 
-.stockLink {
+#stockLink {
   display: inline-block;
 }
 
-.stockBox{
+#stockBox{
   display: none;
   padding: 40px 0 0 0;
   border: 2px solid black;
@@ -183,7 +176,7 @@ a {
 
 #dateStamp {
   margin-bottom: 5px;
-  color: grey;
+  color: white;
 }
 
 #priceAlign {
@@ -211,7 +204,7 @@ a {
 
 #clickText {
   display: none;
-  color: grey;
+  color: white;
   position: relative;
   top: 10px;
 }
@@ -219,7 +212,7 @@ a {
 #clickText2 {
   display: none;
   margin-top: 10px;
-  color: grey;
+  color: white;
   position: relative;
   top: 10px;
 }
@@ -239,7 +232,7 @@ a {
   border-radius: 5px;
 }
 
-.js-search-form {
+#js-search-form {
   margin-top: 40px;
   text-align: center;
 }
@@ -259,23 +252,41 @@ a {
 }
 
 
+/* -------------------- BEGIN RESPONSIVE DESIGN -------------------- */
 
+* {
+  box-sizing: border-box;
+}
 
+@media only screen and (max-width: 420px) {
 
+#displayBox {
+  top: 100px;
+  width: 250px;
+  }
 
+.price {
+  font-size: 12px;
+  }
 
+#js-search-form {
+  margin-top: 20px;
+  }
+}
 
+@media only screen and (max-width: 330px) {
+  
+#displayBox {
+  top: 20px;
+  width: 250px;
+  }
 
+.price {
+  font-size: 12px;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
+#js-search-form {
+  margin-top: 20px;
+  }
+}
+/* -------------------- END RESPONSIVE DESIGN -------------------- */
